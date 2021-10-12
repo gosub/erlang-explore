@@ -1,8 +1,8 @@
 -module(turing_tape).
 
--export([new_tape/0, left/1, right/1, write/2, clear/1, read/1, eval/2, eval_list/2]).
+-export([new/0, left/1, right/1, write/2, clear/1, read/1, eval/2, eval_list/2]).
 
-new_tape() ->
+new() ->
     {{}, [], []}.
 
 left({{}, [], []}) ->
