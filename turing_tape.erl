@@ -3,6 +3,10 @@
 -export([new/0, left/1, right/1, write/2, clear/1, read/1,
 	 eval/2, eval_list/2, as_list/1]).
 
+-type cell_value() :: atom() | string().
+-type cell() :: {cell_value()} | {}.
+-type tape() :: {cell(), [cell()], [cell()]}.
+
 new() ->
     {{}, [], []}.
 
