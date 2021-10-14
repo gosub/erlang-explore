@@ -1,8 +1,7 @@
 -module(turing_tape).
 
 -export([new/0, left/1, right/1, write/2, clear/1, read/1,
-	 eval/2, eval_list/2, to_list/1, to_list_and_index/1,
-	to_string/1]).
+	 eval/2, eval_list/2, to_list/1, to_string/1]).
 
 -type cell_value() :: atom() | string().
 -type cell() :: {cell_value()} | {}.
@@ -57,9 +56,6 @@ eval_list(Tape, [Cmd|Rest]) ->
 
 to_list({X, Left, Right}) ->
     lists:reverse(Left) ++ [X] ++ Right.
-
-to_list_and_index(Tape={_, Left, _}) ->
-    {to_list(Tape), length(Left)}.
 
 to_string(Tape) ->
     L = lists:map(fun cell_to_str/1, to_list(Tape)),
