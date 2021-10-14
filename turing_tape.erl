@@ -58,11 +58,9 @@ to_list({X, Left, Right}) ->
     lists:reverse(Left) ++ [X] ++ Right.
 
 to_string({Cur, Left, Right}) ->
-    StrsL = lists:map(fun cell_to_str/1, lists:reverse(Left)),
+    StrL = cell_list_to_str(lists:reverse(Left)),
     StrCur = cell_to_str(Cur),
-    StrsR = lists:map(fun cell_to_str/1, Right),
-    StrL = lists:concat(lists:join("|", StrsL)),
-    StrR = lists:concat(lists:join("|", StrsR)),
+    StrR = cell_list_to_str(Right),
     StrL ++ "[" ++ StrCur ++ "]" ++ StrR.
 
 cell_to_str({}) ->
@@ -71,3 +69,10 @@ cell_to_str({X}) when is_list(X) ->
     X;
 cell_to_str({X}) ->
     lists:concat([X]).
+
+cell_list_to_str(L) ->
+    cell_list_to_str(L, "|").
+
+cell_list_to_str(L, Sep) ->
+    lists:concat(
+      lists:join(Sep, lists:map(fun cell_to_str/1, L))).
