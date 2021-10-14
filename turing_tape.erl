@@ -57,9 +57,13 @@ eval_list(Tape, [Cmd|Rest]) ->
 to_list({X, Left, Right}) ->
     lists:reverse(Left) ++ [X] ++ Right.
 
-to_string(Tape) ->
-    L = lists:map(fun cell_to_str/1, to_list(Tape)),
-    "|" ++ lists:concat(lists:join("|", L)) ++ "|".
+to_string({Cur, Left, Right}) ->
+    StrsL = lists:map(fun cell_to_str/1, lists:reverse(Left)),
+    StrCur = cell_to_str(Cur),
+    StrsR = lists:map(fun cell_to_str/1, Right),
+    StrL = lists:concat(lists:join("|", StrsL)),
+    StrR = lists:concat(lists:join("|", StrsR)),
+    StrL ++ "[" ++ StrCur ++ "]" ++ StrR.
 
 cell_to_str({}) ->
     " ";
