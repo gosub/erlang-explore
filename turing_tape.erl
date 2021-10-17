@@ -4,10 +4,10 @@
 -export([new/0, left/1, right/1, write/2, clear/1, read/1,
 	 eval/2, eval_list/2, to_list/1, to_string/1]).
 
--type cell_value() :: atom() | string().
--type cell() :: {cell_value()} | {}.
+-type non_empty_cell() :: atom() | string().
+-type cell() :: {} | non_empty_cell().
 -type tape() :: {cell(), [cell()], [cell()]}.
--type command() :: left | right | clear | {write, cell_value()}.
+-type command() :: left | right | clear | {write, non_empty_cell()}.
 
 -spec new() -> tape().
 new() ->
@@ -33,19 +33,17 @@ right({{}, [], [X|Rest]}) ->
 right({Cursor, Left, [X|Rest]}) ->
     {X, [Cursor|Left], Rest}.
 
--spec write(tape(), cell_value()) -> tape().
-write({_, L, R}, X) ->
-    {{X}, L, R}.
+-spec write(tape(), non_empty_cell()) -> tape().
+write({_, L, R}, X) when is_atom(X) orelse is_list(X) ->
+    {X, L, R}.
 
 -spec clear(tape()) -> tape().
 clear({_, L, R}) ->
     {{}, L, R}.
 
--spec read(tape()) -> empty | {ok, cell_value()}.
-read({{}, _, _}) ->
-    empty;
-read({{X}, _, _}) ->
-    {ok, X}.
+-spec read(tape()) -> cell().
+read({Cell, _, _}) ->
+    Cell.
 
 -spec eval(tape(), command()) -> tape().
 eval(Tape, left) ->
@@ -77,10 +75,10 @@ to_string({Cur, Left, Right}) ->
 
 cell_to_str({}) ->
     " ";
-cell_to_str({X}) when is_list(X) ->
+cell_to_str(X) when is_list(X) ->
     X;
-cell_to_str({X}) ->
-    lists:concat([X]).
+cell_to_str(X) ->
+    atom_to_list(X).
 
 cell_list_to_str(L) ->
     cell_list_to_str(L, "|").
