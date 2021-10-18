@@ -77,6 +77,8 @@ cell_to_str({}) ->
     " ";
 cell_to_str(X) when is_list(X) ->
     X;
+cell_to_str(X) when is_integer(X) ->
+    integer_to_list(X);
 cell_to_str(X) ->
     atom_to_list(X).
 
