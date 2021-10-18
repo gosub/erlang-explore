@@ -34,7 +34,7 @@ right({Cursor, Left, [X|Rest]}) ->
     {X, [Cursor|Left], Rest}.
 
 -spec write(tape(), non_empty_cell()) -> tape().
-write({_, L, R}, X) when is_atom(X) orelse is_list(X) ->
+write({_, L, R}, X) ->
     {X, L, R}.
 
 -spec clear(tape()) -> tape().
