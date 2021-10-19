@@ -7,7 +7,7 @@ new(Table, InitState) ->
     new(Table, InitState, turing_tape:new()).
 
 new(Table, InitState, Tape) ->
-    {Table, InitState, Tape}.
+    {rule_table_from_list(Table), InitState, Tape}.
 
 step({Table, State, Tape}) ->
     Read = turing_tape:read(Tape),
@@ -25,3 +25,12 @@ to_string({_, State, Tape}) ->
     StateStr = lists:concat([State]),
     TapeStr = turing_tape:to_string(Tape),
     "state: " ++ StateStr ++ ", tape: " ++ TapeStr.
+
+rule_table_from_list(List) ->
+    rule_table_from_list(List, #{}).
+
+rule_table_from_list([], AccMap) ->
+    AccMap;
+rule_table_from_list([State, Read, Instructions, NextState| Rest], AccMap) ->
+    M2 = maps:put({State, Read}, {Instructions, NextState}, AccMap),
+    rule_table_from_list(Rest, M2).
