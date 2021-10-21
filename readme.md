@@ -9,3 +9,5 @@ A module to simulate an infinite tape, in both direction, subdivided in cells wh
 A module to define and run Turing Machines. Each machine is made of the current state symbol, a tape, and the table that maps the current state and the symbol under the cursor of the tape to the next state and the operations to perform on the tape.
 
 ## turing_machines
+
+A collection of turing machines definitions, mostly reimplemented from *The Annotated Turing* by Charles Petzold.
