@@ -31,22 +31,18 @@ runs_of_ones() ->
 [
  "𝔟", {},  [{write, "ə"}, right, {write, "ə"},
             right, {write, 0}, right, right,
-            {write, 0}, left, left],             "𝖔",
+            {write, 0}, left, left],               "𝖔",
 
- "𝖔", 1,  [right, {write, x}, left, left, left], "𝖔",
- "𝖔", 0,  [],                                    "𝖖",
+ "𝖔", 1,  [right, {write, "x"}, left, left, left], "𝖔",
+ "𝖔", 0,  [],                                      "𝖖",
 
- "𝖖", 0,  [right, right],                        "𝖖",
- "𝖖", 1,  [right, right],                        "𝖖",
- "𝖖", {}, [{write, 1}, left],                    "𝖕",
+ "𝖖", any,[right, right],                          "𝖖",
+ "𝖖", {}, [{write, 1}, left],                      "𝖕",
 
- "𝖕", x,  [clear, right],                        "𝖖",
- "𝖕", "ə",[right],                               "𝖋",
- "𝖕", {}, [left, left],                          "𝖕",
+ "𝖕", "x",[clear, right],                          "𝖖",
+ "𝖕", "ə",[right],                                 "𝖋",
+ "𝖕", {}, [left, left],                            "𝖕",
 
- "𝖋", 0,  [right, right],                        "𝖋",
- "𝖋", 1,  [right, right],                        "𝖋",
- "𝖋", "ə",[right, right],                        "𝖋",
- "𝖋", x,  [right, right],                        "𝖋",
- "𝖋", {}, [{write, 0}, left,left],               "𝖔"
+ "𝖋", any,[right, right],                          "𝖋",
+ "𝖋", {}, [{write, 0}, left,left],                 "𝖔"
 ].
