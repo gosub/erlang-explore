@@ -11,7 +11,7 @@ new(Table, InitState, Tape) ->
 
 step({Table, State, Tape}) ->
     Read = turing_tape:read(Tape),
-    {ok, {Actions, NewState}} = maps:find({State, Read}, Table),
+    {Actions, NewState} = match(State, Read, Table),
     NewTape = turing_tape:eval_list(Tape, Actions),
     {Table, NewState, NewTape}.
 
@@ -20,6 +20,15 @@ steps(Machine, 0) ->
 steps(Machine, N) when is_integer(N) andalso N > 0 ->
     M2 = step(Machine),
     steps(M2, N-1).
+
+match(State, Read, Table) ->
+    case maps:find({State, Read}, Table) of
+	{ok, Result} ->
+	    Result;
+	error ->
+	    {ok, Result} = maps:find({State, any}, Table),
+	    Result
+    end.
 
 to_string({_, State, Tape}) ->
     StateStr = lists:concat([State]),
