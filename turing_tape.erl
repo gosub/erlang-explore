@@ -4,7 +4,7 @@
 -export([new/0, left/1, right/1, write/2, clear/1, read/1,
 	 eval/2, eval_list/2, to_list/1, to_string/1]).
 
--type non_empty_cell() :: atom() | string().
+-type non_empty_cell() :: string() | 0 | 1.
 -type cell() :: {} | non_empty_cell().
 -type tape() :: {cell(), [cell()], [cell()]}.
 -type command() :: left | right | clear | {write, non_empty_cell()}.
@@ -78,9 +78,7 @@ cell_to_str({}) ->
 cell_to_str(X) when is_list(X) ->
     X;
 cell_to_str(X) when is_integer(X) ->
-    integer_to_list(X);
-cell_to_str(X) ->
-    atom_to_list(X).
+    integer_to_list(X).
 
 cell_list_to_str(L) ->
     cell_list_to_str(L, "|").
