@@ -56,3 +56,17 @@ positive_integers() ->
  rewind, {}, [left], increment,
  rewind, any, [right], rewind
 ].
+
+sqrt_of_two() ->
+[
+ begin_, {}, [{write, "@"}, right, {write, 1}], new,
+
+ new, "@", [right], mark_digits,
+ new, any, [left], new,
+
+ mark_digits, 0, [right, {write, "x"}, right], mark_digits,
+ mark_digits, 1, [right, {write, "x"}, right], mark_digits,
+ mark_digits, {}, [right, {write, "z"}, right, right, {write, "r"}], find_x,
+
+ completeme % continue at page 116
+].
