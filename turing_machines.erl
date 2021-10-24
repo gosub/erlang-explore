@@ -89,5 +89,9 @@ sqrt_of_two() ->
  found_1st_digit, "0", [right], add_zero,
  found_1st_digit, "1", [right, right, right], find_2nd_digit,
 
+ find_2nd_digit, "x", [left], found_2nd_digit,
+ find_2nd_digit, "y", [left], found_2nd_digit,
+ find_2nd_digit,  {}, [right, right], find_2nd_digit,
+
  completeme % continue at page 117
 ].
