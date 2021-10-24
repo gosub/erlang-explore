@@ -78,5 +78,13 @@ sqrt_of_two() ->
  last_r, "r", [right, right], last_r,
  last_r, {},  [{write, "r"}, right, right, {write, "r"}], find_x,
 
+ find_digits, "@", [right, right], find_1st_digit,
+ find_digits, any, [left, left], find_digits,
+
+ find_1st_digit, "x", [left], found_1st_digit,
+ find_1st_digit, "y", [left], found_1st_digit,
+ find_1st_digit, "z", [left], found_2nd_digit,
+ find_1st_digit, {},  [right, right], find_1st_digit,
+
  completeme % continue at page 117
 ].
