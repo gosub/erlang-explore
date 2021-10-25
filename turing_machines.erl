@@ -97,5 +97,9 @@ sqrt_of_two() ->
  found_2nd_digit, 1,  [right], add_one,
  found_2nd_digit, {}, [right], add_one,
 
+ add_zero, "r", [{write, "s"}], add_finished,
+ add_zero, "u", [{write, "v"}], add_finished,
+ add_zero, any, [right, right], add_zero,
+
  completeme % continue at page 117
 ].
