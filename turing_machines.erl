@@ -101,5 +101,9 @@ sqrt_of_two() ->
  add_zero, "u", [{write, "v"}], add_finished,
  add_zero, any, [right, right], add_zero,
 
+ add_one, "r", [{write, "v"}], add_finished,
+ add_one, "u", [{write, "s"}, right, right], carry,
+ add_one, any, [right, right], add_one,
+
  completeme % continue at page 117
 ].
