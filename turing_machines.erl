@@ -112,5 +112,9 @@ sqrt_of_two() ->
  add_finished, "@", [right, right], erase_old_x,
  add_finished, any, [left, left], add_finished,
 
+ erase_old_x, "x", [clear, left, left], print_new_x,
+ erase_old_x, "z", [{write, "y"}, left, left], print_new_x,
+ erase_old_x, any, [right, right], erase_old_x,
+
  completeme % continue at page 118
 ].
