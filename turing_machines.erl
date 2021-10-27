@@ -116,5 +116,9 @@ sqrt_of_two() ->
  erase_old_x, "z", [{write, "y"}, left, left], print_new_x,
  erase_old_x, any, [right, right], erase_old_x,
 
+ print_new_x, "@", [right, right], erase_old_y,
+ print_new_x, "y", [{write, "z"}], find_digits,
+ print_new_x, {},  [{write, "x"}], find_digits,
+
  completeme % continue at page 118
 ].
