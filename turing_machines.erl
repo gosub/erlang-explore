@@ -123,5 +123,8 @@ sqrt_of_two() ->
  erase_old_y, "y", [clear, left, left], print_new_y,
  erase_old_y, any, [right, right], erase_old_y,
 
+ print_new_y, "@", [right], new_digit_is_one,
+ print_new_y, any,  [{write, "y"}, right], reset_new_x,
+
  completeme % continue at page 118
 ].
