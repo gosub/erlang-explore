@@ -129,5 +129,9 @@ sqrt_of_two() ->
  reset_new_x, {},  [right, {write, "x"}], flag_result_digits,
  reset_new_x, any, [right, right], reset_new_x,
 
+ flag_result_digits, "s", [{write, "t"}, right, right], unflag_result_digits,
+ flag_result_digits, "v", [{write, "w"}, right, right], unflag_result_digits,
+ flag_result_digits, any, [right, right], flag_result_digits,
+
  completeme % continue at page 118
 ].
