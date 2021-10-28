@@ -133,5 +133,9 @@ sqrt_of_two() ->
  flag_result_digits, "v", [{write, "w"}, right, right], unflag_result_digits,
  flag_result_digits, any, [right, right], flag_result_digits,
 
+ unflag_result_digits, "s", [{write, "r"}, right, right], unflag_result_digits,
+ unflag_result_digits, "v", [{write, "u"}, right, right], unflag_result_digits,
+ unflag_result_digits, any, [], find_digits,
+
  completeme % continue at page 118
 ].
