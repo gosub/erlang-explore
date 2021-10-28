@@ -126,5 +126,8 @@ sqrt_of_two() ->
  print_new_y, "@", [right], new_digit_is_one,
  print_new_y, any,  [{write, "y"}, right], reset_new_x,
 
+ reset_new_x, {},  [right, {write, "x"}], flag_result_digits,
+ reset_new_x, any, [right, right], reset_new_x,
+
  completeme % continue at page 118
 ].
