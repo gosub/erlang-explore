@@ -137,5 +137,8 @@ sqrt_of_two() ->
  unflag_result_digits, "v", [{write, "u"}, right, right], unflag_result_digits,
  unflag_result_digits, any, [], find_digits,
 
+ new_digit_is_zero, "@", [right], print_zero_digit,
+ new_digit_is_zero, any, [left], new_digit_is_zero,
+
  completeme % continue at page 118
 ].
