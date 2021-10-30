@@ -147,5 +147,9 @@ sqrt_of_two() ->
  new_digit_is_one, "@", [right], print_one_digit,
  new_digit_is_one, any, [left], new_digit_is_one,
 
+ print_one_digit, 0,  [right, clear, right], print_one_digit,
+ print_one_digit, 1,  [right, clear, right], print_one_digit,
+ print_one_digit, {}, [{write, 1}, right, right, right], cleanup,
+
  completeme % continue at page 118
 ].
