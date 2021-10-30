@@ -3,7 +3,7 @@
 
 -export([make/1, make/2]).
 -export([alternating_example/0, simplified_alternating_example/0]).
--export([runs_of_ones/0, positive_integers/0]).
+-export([runs_of_ones/0, positive_integers/0, sqrt_of_two/0]).
 
 make(Machine) ->
     make(Machine, "𝔟").
@@ -86,8 +86,8 @@ sqrt_of_two() ->
  find_1st_digit, "z", [left], found_2nd_digit,
  find_1st_digit, {},  [right, right], find_1st_digit,
 
- found_1st_digit, "0", [right], add_zero,
- found_1st_digit, "1", [right, right, right], find_2nd_digit,
+ found_1st_digit, 0, [right], add_zero,
+ found_1st_digit, 1, [right, right, right], find_2nd_digit,
 
  find_2nd_digit, "x", [left], found_2nd_digit,
  find_2nd_digit, "y", [left], found_2nd_digit,
@@ -152,7 +152,5 @@ sqrt_of_two() ->
  print_one_digit, {}, [{write, 1}, right, right, right], cleanup,
 
  cleanup, {}, [], new,
- cleanup, any, [clear, right, right], cleanup,
-
- completeme % continue at page 118
+ cleanup, any, [clear, right, right], cleanup
 ].
