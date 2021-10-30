@@ -151,5 +151,8 @@ sqrt_of_two() ->
  print_one_digit, 1,  [right, clear, right], print_one_digit,
  print_one_digit, {}, [{write, 1}, right, right, right], cleanup,
 
+ cleanup, {}, [], new,
+ cleanup, any, [clear, right, right], cleanup,
+
  completeme % continue at page 118
 ].
