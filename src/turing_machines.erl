@@ -1,5 +1,6 @@
 -module(turing_machines).
 -author("Giampaolo Guiducci <giampaolo.guiducci@gmail.com>").
+-license("GNU GPL v3.0").
 
 -export([make/1, make/2]).
 -export([alternating_example/0, simplified_alternating_example/0]).

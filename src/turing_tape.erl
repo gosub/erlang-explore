@@ -1,5 +1,6 @@
 -module(turing_tape).
 -author("Giampaolo Guiducci <giampaolo.guiducci@gmail.com>").
+-license("GNU GPL v3.0").
 
 -export([new/0, left/1, right/1, write/2, clear/1, read/1,
 	 eval/2, eval_list/2, to_list/1, to_string/1]).

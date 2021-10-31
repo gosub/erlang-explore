@@ -1,5 +1,6 @@
 -module(mini_repl).
 -author("Giampaolo Guiducci <giampaolo.guiducci@gmail.com>").
+-license("GNU GPL v3.0").
 
 -export([run/2, run/3, echo_eval/1, inc_eval/2]).
 
