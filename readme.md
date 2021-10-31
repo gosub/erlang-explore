@@ -24,4 +24,4 @@ All the code inside this repository is released under the [GNU General Public Li
 
 ## Author
 
-[Giampaolo Guiducci <giampaolo.guiducci@gmail.com>](mailto:giampaolo.guiducci@gmail.com)
+Giampaolo Guiducci <giampaolo.guiducci@gmail.com>
