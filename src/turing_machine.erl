@@ -12,9 +12,11 @@
 -type rule_list() :: [state() | cell_match() | [turing_tape:command()]].
 -type turing_machine() :: {rule_table(), state(), turing_tape:tape()}.
 
+-spec new(rule_table(), state()) -> turing_machine().
 new(Table, InitState) ->
     new(Table, InitState, turing_tape:new()).
 
+-spec new(rule_table(), state(), turing_tape:tape()) -> turing_machine().
 new(Table, InitState, Tape) ->
     {rule_table_from_list(Table), InitState, Tape}.
 
