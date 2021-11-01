@@ -4,6 +4,14 @@
 
 -export([new/2, new/3, step/1, steps/2, to_string/1]).
 
+-type state() :: string() | atom().
+-type cell_match() :: turing_tape:cell() | any.
+-type table_key() :: {state(), cell_match()}.
+-type table_value() :: {[turing_tape:command()], state()}.
+-type rule_table() :: #{table_key() := table_value()}.
+-type rule_list() :: [state() | cell_match() | [turing_tape:command()]].
+-type turing_machine() :: {rule_table(), state(), turing_tape:tape()}.
+
 new(Table, InitState) ->
     new(Table, InitState, turing_tape:new()).
 
