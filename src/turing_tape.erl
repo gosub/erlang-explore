@@ -10,6 +10,9 @@
 -type tape() :: {cell(), [cell()], [cell()]}.
 -type command() :: left | right | clear | {write, non_empty_cell()}.
 
+-export_type([tape/0, cell/0, command/0]).
+
+
 -spec new() -> tape().
 new() ->
     {{}, [], []}.
@@ -74,6 +77,7 @@ to_string({Cur, Left, Right}) ->
     StrR = cell_list_to_str(Right),
     StrL ++ "[" ++ StrCur ++ "]" ++ StrR.
 
+-spec cell_to_str(cell()) -> string().
 cell_to_str({}) ->
     " ";
 cell_to_str(X) when is_list(X) ->
@@ -81,9 +85,11 @@ cell_to_str(X) when is_list(X) ->
 cell_to_str(X) when is_integer(X) ->
     integer_to_list(X).
 
+-spec cell_list_to_str([cell()]) -> string().
 cell_list_to_str(L) ->
     cell_list_to_str(L, "|").
 
+-spec cell_list_to_str([cell()], string()) -> string().
 cell_list_to_str(L, Sep) ->
     lists:concat(
       lists:join(Sep, lists:map(fun cell_to_str/1, L))).
