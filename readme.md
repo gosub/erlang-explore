@@ -2,9 +2,19 @@
 
 ## Modules
 
+
 ### turing_tape
 
-A module to simulate an infinite tape, in both direction, subdivided in cells where symbols can be written. Used in the turing_machine module. The tape api is made of the possible operations defined by Alan Turing in its paper "On Computable Numbers, With An Application To The Entscheidungsproblem" i.e.: left, right, write X, read. The tape is implemented as [zipper data structure](https://en.wikipedia.org/wiki/Zipper_\(data_structure\)).
+Implements a data structure to simulate a tape, infinite in both directions. The tape is subdivided in cells, that can be empty or populated with a symbol. Used in the **turing_machine** module. The tape API is the set of possible operations defined by Alan Turing in its paper "*On Computable Numbers, With An Application To The Entscheidungsproblem*":
+
+- *left*: shift the tape left by one cell
+- *right*: shift the tape right by one cell
+- *clear*: empty the cell under the cursor
+- *{write, X}*: write the symbol X in the cell under the cursor
+- *read*: return the symbol under the cursor
+
+The underlying implementation for the tape is a [zipper data structure](https://en.wikipedia.org/wiki/Zipper_\(data_structure\)).
+
 
 ### turing_machine
 
