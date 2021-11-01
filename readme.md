@@ -18,6 +18,14 @@ A collection of turing machines definitions, mostly reimplemented from *The Anno
 
 *TOWRITE*
 
+## Dev checklist
+
+- [ ] code
+- [ ] types
+- [ ] readme desc
+- [ ] comments
+- [ ] tests?
+
 ## License
 
 All the code inside this repository is released under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html).
