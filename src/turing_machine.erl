@@ -20,12 +20,14 @@ new(Table, InitState) ->
 new(Table, InitState, Tape) ->
     {rule_table_from_list(Table), InitState, Tape}.
 
+-spec step(turing_machine()) -> turing_machine().
 step({Table, State, Tape}) ->
     Read = turing_tape:read(Tape),
     {Actions, NewState} = match(State, Read, Table),
     NewTape = turing_tape:eval_list(Tape, Actions),
     {Table, NewState, NewTape}.
 
+-spec steps(turing_machine(), integer()) -> turing_machine().
 steps(Machine, 0) ->
     Machine;
 steps(Machine, N) when is_integer(N) andalso N > 0 ->
