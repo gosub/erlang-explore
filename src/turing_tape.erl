@@ -13,6 +13,18 @@
 -export_type([tape/0, cell/0, command/0]).
 
 
+%% new/0: return a new empty tape
+%%
+%% Every tape is a tuple of:
+%% - the content of the cell under cursor ({} is the empty cell)
+%% - a list of cells to the left of the cursor
+%% - a list of cells to the right of the cursor
+%%
+%% The convention is that an empty list represents a infinite list
+%% of empty cells. The left list of cells is reversed, so that moving
+%% through it is an operation that can be made on the head of the list.
+%% This implementation is equivalent to a zipper data structure.
+
 -spec new() -> tape().
 new() ->
     {{}, [], []}.
