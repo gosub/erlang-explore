@@ -63,6 +63,10 @@ right({{}, [], [X|Rest]}) ->
 right({Cursor, Left, [X|Rest]}) ->
     {X, [Cursor|Left], Rest}.
 
+
+%% write/2: return the input tape with the second argument written
+%%          in cell under the cursor of the input tape
+
 -spec write(tape(), non_empty_cell()) -> tape().
 write({_, L, R}, X) ->
     {X, L, R}.
