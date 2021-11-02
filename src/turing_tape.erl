@@ -29,6 +29,15 @@
 new() ->
     {{}, [], []}.
 
+
+%% left/1: return the input tape shifted one cell to the left
+%%
+%% Pops into the cursor cell the head of the list in the direction
+%% of movement, and pushes the old cell content onto the head of the
+%% list in the opposite direction.
+%%
+%% Pushing an empty cell to an empty list doesn't grow the list.
+
 -spec left(tape()) -> tape().
 left({{}, [], []}) ->
     {{}, [], []};
