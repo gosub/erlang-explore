@@ -78,6 +78,10 @@ write({_, L, R}, X) ->
 clear({_, L, R}) ->
     {{}, L, R}.
 
+
+%% read/1: return the content of the cell under the cursor of
+%%         the input tape
+
 -spec read(tape()) -> cell().
 read({Cell, _, _}) ->
     Cell.
