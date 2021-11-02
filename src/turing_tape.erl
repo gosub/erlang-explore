@@ -86,6 +86,19 @@ clear({_, L, R}) ->
 read({Cell, _, _}) ->
     Cell.
 
+
+%% eval/1: apply to the input tape a command (second argument) and return
+%%         the new modified tape
+%%
+%% Possible commands:
+%% - left
+%% - right
+%% - clear
+%% - {write, X}
+%%
+%% The first three commands are simple atoms, the last one is a tuple
+%% with the 'write' atom as the first element
+
 -spec eval(tape(), command()) -> tape().
 eval(Tape, left) ->
     left(Tape);
