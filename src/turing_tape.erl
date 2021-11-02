@@ -71,6 +71,9 @@ right({Cursor, Left, [X|Rest]}) ->
 write({_, L, R}, X) ->
     {X, L, R}.
 
+
+%% clear/1: return the input tape with the cell under the cursor cleared
+
 -spec clear(tape()) -> tape().
 clear({_, L, R}) ->
     {{}, L, R}.
