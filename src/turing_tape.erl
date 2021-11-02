@@ -48,6 +48,11 @@ left({{}, [X|Rest], []}) ->
 left({Cursor, [X|Rest], Right}) ->
     {X, Rest, [Cursor|Right]}.
 
+
+%% right/1: return the input tape shifted one cell to the right
+%%
+%% Same as left/1
+
 -spec right(tape()) -> tape().
 right({{}, [], []}) ->
     {{}, [], []};
