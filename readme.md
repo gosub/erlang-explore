@@ -26,7 +26,7 @@ A collection of turing machines definitions, mostly reimplemented from *The Anno
 
 ### mini_repl
 
-*TOWRITE*
+A module to create small REPLs.
 
 ## Dev checklist
 
