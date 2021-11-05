@@ -109,6 +109,14 @@ eval(Tape, clear) ->
 eval(Tape, {write, X}) ->
     write(Tape, X).
 
+
+%% eval_list/2: apply to the input tape a list of commands, and return
+%%              the resulting tape
+%%
+%% The command list must be populated with the same commands available to
+%% the eval/1 command. If the list is empty, the input list is returned
+%% unchanged.
+
 -spec eval_list(tape(), [command()]) -> tape().
 eval_list(Tape, []) ->
     Tape;
