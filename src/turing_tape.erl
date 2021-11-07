@@ -160,7 +160,7 @@ to_string({Cur, Left, Right}) ->
 
 %% cell_to_str/1: returns the string representation of a single cell
 %%
-%% Helper function used in to_string/1.
+%% Helper function used in cell_list_to_str/2 and to_string/1.
 %% Empty cells are just a single space.
 %% String cells are returned as they are.
 %% Numeric cells (usually just 0 or 1) are converted to strings.
