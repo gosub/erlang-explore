@@ -124,6 +124,15 @@ eval_list(Tape, [Cmd|Rest]) ->
     T2 = eval(Tape, Cmd),
     eval_list(T2, Rest).
 
+
+%% to_list/1: returns a list representation of the tape
+%%
+%% Since the tape could be potentially infinite, the returned list
+%% cuts off all the left and right tails of empty cell, so the list
+%% starts from the leftmost non-empty cell up to the rightmost non-empty
+%% cell (unless the cursor has moved left or right into the "void", in
+%% this case empty cells are in the tails to keep track of the position.)
+
 -spec to_list(tape()) -> [cell()].
 to_list({X, Left, Right}) ->
     lists:reverse(Left) ++ [X] ++ Right.
