@@ -139,6 +139,17 @@ eval_list(Tape, [Cmd|Rest]) ->
 to_list({X, Left, Right}) ->
     lists:reverse(Left) ++ [X] ++ Right.
 
+
+%% to_string/1: returns a string representation of the tape
+%%
+%% This is a "graphical" representation of the list, made for printing.
+%% Every cell is separated by vertical bar signs to the sides ("|").
+%% Empty cells are just spaces (" ").
+%% Cursor position is represented by enclosing the cell with brackets,
+%% ("[]") instead of vertical bars.
+%% As with the list representation, infinite sequences of empty cells on
+%% the right and left tails of the tape are omitted.
+
 -spec to_string(tape()) -> string().
 to_string({Cur, Left, Right}) ->
     StrL = cell_list_to_str(lists:reverse(Left)),
