@@ -183,6 +183,12 @@ cell_to_str(X) when is_integer(X) ->
 cell_list_to_str(L) ->
     cell_list_to_str(L, "|").
 
+
+%% cell_list_to_str/2: cells list string representation, interspersed with
+%%                     a separator
+%%
+%% Joins all the string representation of cell list, with the separator string.
+
 -spec cell_list_to_str([cell()], string()) -> string().
 cell_list_to_str(L, Sep) ->
     lists:concat(
