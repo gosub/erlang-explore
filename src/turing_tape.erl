@@ -132,6 +132,8 @@ eval_list(Tape, [Cmd|Rest]) ->
 %% starts from the leftmost non-empty cell up to the rightmost non-empty
 %% cell (unless the cursor has moved left or right into the "void", in
 %% this case empty cells are in the tails to keep track of the position.)
+%% The cursor position is lost, so the resulting list cannot be turned
+%% back to the tape recovering the cursor position.
 
 -spec to_list(tape()) -> [cell()].
 to_list({X, Left, Right}) ->
