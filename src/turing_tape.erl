@@ -173,6 +173,12 @@ cell_to_str(X) when is_list(X) ->
 cell_to_str(X) when is_integer(X) ->
     integer_to_list(X).
 
+
+%% cell_list_to_str/1: takes a list of cells and returns a string
+%%
+%% Calls cell_list_to_str/2 with the default separator "|".
+%% Helper function used in to_string/1.
+
 -spec cell_list_to_str([cell()]) -> string().
 cell_list_to_str(L) ->
     cell_list_to_str(L, "|").
