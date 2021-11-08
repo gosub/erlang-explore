@@ -51,6 +51,7 @@ to_string({_, State, Tape}) ->
     TapeStr = turing_tape:to_string(Tape),
     "state: " ++ StateStr ++ ", tape: " ++ TapeStr.
 
+-spec rule_table_from_list(rule_list()) -> rule_table().
 rule_table_from_list(List) ->
     rule_table_from_list(List, #{}).
 
