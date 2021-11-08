@@ -6,6 +6,7 @@
 
 -type state() :: string() | atom().
 -type cell_match() :: turing_tape:cell() | any.
+-type match_result() :: {ok, table_value()} | error.
 -type table_key() :: {state(), cell_match()}.
 -type table_value() :: {[turing_tape:command()], state()}.
 -type rule_table() :: #{table_key() := table_value()}.
@@ -34,6 +35,7 @@ steps(Machine, N) when is_integer(N) andalso N > 0 ->
     M2 = step(Machine),
     steps(M2, N-1).
 
+-spec match(state(), turing_tape:cell(), rule_table()) -> match_result().
 match(State, Read, Table) ->
     case maps:find({State, Read}, Table) of
 	{ok, Result} ->
