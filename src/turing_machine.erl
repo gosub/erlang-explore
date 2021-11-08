@@ -55,6 +55,7 @@ to_string({_, State, Tape}) ->
 rule_table_from_list(List) ->
     rule_table_from_list(List, #{}).
 
+-spec rule_table_from_list(rule_list(), rule_table()) -> rule_table().
 rule_table_from_list([], AccMap) ->
     AccMap;
 rule_table_from_list([State, Read, Instructions, NextState| Rest], AccMap) ->
