@@ -45,6 +45,7 @@ match(State, Read, Table) ->
 	    Result
     end.
 
+-spec to_string(turing_machine()) -> string().
 to_string({_, State, Tape}) ->
     StateStr = lists:concat([State]),
     TapeStr = turing_tape:to_string(Tape),
