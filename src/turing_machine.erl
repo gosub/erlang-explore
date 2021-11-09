@@ -17,7 +17,7 @@
 %% new/2: create a new turing machine from the rule table and initial state
 %%
 %% The rule table is a map where the keys are a tuple made of:
-%%  - internal state machine
+%%  - internal state of the machine
 %%  - value that matches the cell under the cursor
 %%
 %% The values of the table are also a tuple, made of:
