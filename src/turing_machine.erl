@@ -13,6 +13,19 @@
 -type rule_list() :: [state() | cell_match() | [turing_tape:command()]].
 -type turing_machine() :: {rule_table(), state(), turing_tape:tape()}.
 
+
+%% new/2: create a new turing machine from the rule table and initial state
+%%
+%% The rule table is a map where the keys are a tuple made of:
+%%  - internal state machine
+%%  - value that matches the cell under the cursor
+%%
+%% The values of the table are also a tuple, made of:
+%%  - a list of commands to run when the rule matches
+%%  - the new internal state of the turing machine
+%%
+%% The machine is initialized with an empty tape.
+
 -spec new(rule_table(), state()) -> turing_machine().
 new(Table, InitState) ->
     new(Table, InitState, turing_tape:new()).
