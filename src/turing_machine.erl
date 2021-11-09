@@ -30,6 +30,11 @@
 new(Table, InitState) ->
     new(Table, InitState, turing_tape:new()).
 
+
+%% new/3: create a new turing machine with an inital tape
+%%
+%% The machine is created with a specific initial tape.
+
 -spec new(rule_table(), state(), turing_tape:tape()) -> turing_machine().
 new(Table, InitState, Tape) ->
     {rule_table_from_list(Table), InitState, Tape}.
