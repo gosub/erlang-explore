@@ -64,6 +64,14 @@ steps(Machine, N) when is_integer(N) andalso N > 0 ->
     M2 = step(Machine),
     steps(M2, N-1).
 
+%% match/3: find the correct state transition in the rule table
+%%
+%% Given the machine internal state and the symbol under the cursor,
+%% returns the tuple containing the list of actions to perform on the
+%% tape and the next machine state. In the rule table there could be
+%% the atom 'any' in place of the symbol to find and this matches any
+%% symbol found.
+
 -spec match(state(), turing_tape:cell(), rule_table()) -> match_result().
 match(State, Read, Table) ->
     case maps:find({State, Read}, Table) of
