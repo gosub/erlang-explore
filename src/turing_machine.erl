@@ -39,6 +39,12 @@ new(Table, InitState) ->
 new(Table, InitState, Tape) ->
     {rule_table_from_list(Table), InitState, Tape}.
 
+%% step/1: advance a turing machine by a single state transition
+%%
+%% Returns a new turing machine, where the internal state and the tape
+%% are updated according to the transition table, the current state and
+%% the symbol under the cursor.
+
 -spec step(turing_machine()) -> turing_machine().
 step({Table, State, Tape}) ->
     Read = turing_tape:read(Tape),
