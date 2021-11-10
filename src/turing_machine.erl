@@ -52,6 +52,11 @@ step({Table, State, Tape}) ->
     NewTape = turing_tape:eval_list(Tape, Actions),
     {Table, NewState, NewTape}.
 
+%% step/2: advance a turing machine by N state transitions
+%%
+%% Applies step/1 N times (specified by the second argument),
+%% and returns the final turing machine.
+
 -spec steps(turing_machine(), integer()) -> turing_machine().
 steps(Machine, 0) ->
     Machine;
