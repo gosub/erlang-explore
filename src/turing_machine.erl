@@ -82,6 +82,12 @@ match(State, Read, Table) ->
 	    Result
     end.
 
+%% to_string/1: return the string representation of a turing machine
+%%
+%% The final string has two parts concatenated: the internal state of
+%% the machine and the string representation of the tape. All is
+%% written on a single line.
+
 -spec to_string(turing_machine()) -> string().
 to_string({_, State, Tape}) ->
     StateStr = lists:concat([State]),
