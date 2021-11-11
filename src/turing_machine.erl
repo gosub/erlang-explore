@@ -39,6 +39,7 @@ new(Table, InitState) ->
 new(Table, InitState, Tape) ->
     {rule_table_from_list(Table), InitState, Tape}.
 
+
 %% step/1: advance a turing machine by a single state transition
 %%
 %% Returns a new turing machine, where the internal state and the tape
@@ -52,6 +53,7 @@ step({Table, State, Tape}) ->
     NewTape = turing_tape:eval_list(Tape, Actions),
     {Table, NewState, NewTape}.
 
+
 %% step/2: advance a turing machine by N state transitions
 %%
 %% Applies step/1 N times (specified by the second argument),
@@ -63,6 +65,7 @@ steps(Machine, 0) ->
 steps(Machine, N) when is_integer(N) andalso N > 0 ->
     M2 = step(Machine),
     steps(M2, N-1).
+
 
 %% match/3: find the correct state transition in the rule table
 %%
@@ -81,6 +84,7 @@ match(State, Read, Table) ->
 	    {ok, Result} = maps:find({State, any}, Table),
 	    Result
     end.
+
 
 %% to_string/1: return the string representation of a turing machine
 %%
