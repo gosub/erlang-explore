@@ -94,6 +94,16 @@ to_string({_, State, Tape}) ->
     TapeStr = turing_tape:to_string(Tape),
     "state: " ++ StateStr ++ ", tape: " ++ TapeStr.
 
+
+%% rule_table_from_list/1: create a rule table map from a rule table list
+%%
+%% Helper function to adiuvate the init of a turing machine. Instead of
+%% having to declare a rule table map like this:
+%%   {state, symbol} => {[instructions], next_state}
+%% it should be possible to use a list like this:
+%%   [state1, symbol1, [instructions1], next_state1,
+%%    state2, symbol2, [instructions2], next_state2, ... ]
+
 -spec rule_table_from_list(rule_list()) -> rule_table().
 rule_table_from_list(List) ->
     rule_table_from_list(List, #{}).
