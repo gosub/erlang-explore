@@ -112,6 +112,14 @@ to_string({_, State, Tape}) ->
 rule_table_from_list(List) ->
     rule_table_from_list(List, #{}).
 
+
+%% rule_table_from_list/2: helper functions for rule_table_from_list/1
+%%
+%% This version has a map where it accumulates every 4 entries in the
+%% list in the form {el1, el2} => {el3, el4}.
+%% If number of elements in the input list is not a multiple of 4, the
+%% function fails with an error.
+
 -spec rule_table_from_list(rule_list(), rule_table()) -> rule_table().
 rule_table_from_list([], AccMap) ->
     AccMap;
