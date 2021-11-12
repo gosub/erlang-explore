@@ -11,6 +11,8 @@
 make(Machine) ->
     make(Machine, "𝔟").
 
+
+-spec make(turing_machine:rule_list(), turing_machine:state()) -> turing_machine:turing_machine().
 make(Machine, BeginState) ->
     turing_machine:new(Machine, BeginState).
 
