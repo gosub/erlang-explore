@@ -6,6 +6,8 @@
 -export([alternating_example/0, simplified_alternating_example/0]).
 -export([runs_of_ones/0, positive_integers/0, sqrt_of_two/0]).
 
+
+-spec make(turing_machine:rule_list()) -> turing_machine:turing_machine().
 make(Machine) ->
     make(Machine, "𝔟").
 
