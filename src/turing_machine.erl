@@ -13,6 +13,7 @@
 -type rule_list() :: [state() | cell_match() | [turing_tape:command()]].
 -type turing_machine() :: {rule_table(), state(), turing_tape:tape()}.
 
+-export_type([turing_machine/0, rule_list/0]).
 
 %% new/2: create a new turing machine from the rule table and initial state
 %%
