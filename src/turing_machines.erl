@@ -26,6 +26,8 @@ alternating_example() ->
  "𝔨", {}, [right],             "𝔟"
 ].
 
+
+-spec simplified_alternating_example() -> turing_machine:rule_list().
 simplified_alternating_example() ->
 [
  "𝔟", {}, [{write, 0}],               "𝔟",
