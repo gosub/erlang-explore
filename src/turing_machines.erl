@@ -17,6 +17,7 @@ make(Machine, BeginState) ->
     turing_machine:new(Machine, BeginState).
 
 
+-spec alternating_example() -> turing_machine:rule_list().
 alternating_example() ->
 [
  "𝔟", {}, [{write, 0}, right], "𝔠",
