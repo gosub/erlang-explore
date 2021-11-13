@@ -23,6 +23,12 @@ A module to define and run Turing Machines. Each machine is made of the current 
 ### turing_machines
 
 A collection of turing machines definitions, mostly reimplemented from *The Annotated Turing* by Charles Petzold.
+These are the machines implemented until now:
+
+- alternating_example: prints 1 and 0 alternating
+- simplified_alternating_example: same machine as before, with a simpler definition
+- runs_of_ones: prints runs of ones, separated by single 0s, each run is one longer than the previous
+- sqrt_of_two: prints the binary representation of the fractional part of the square root of two
 
 ### mini_repl
 
