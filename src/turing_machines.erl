@@ -69,6 +69,8 @@ positive_integers() ->
  rewind, any, [right], rewind
 ].
 
+
+-spec sqrt_of_two() -> turing_machine:rule_list().
 sqrt_of_two() ->
 [
  begin_, {}, [{write, "@"}, right, {write, 1}], new,
