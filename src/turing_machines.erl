@@ -57,6 +57,8 @@ runs_of_ones() ->
  "𝖋", {}, [{write, 0}, left,left],                 "𝖔"
 ].
 
+
+-spec positive_integers() -> turing_machine:rule_list().
 positive_integers() ->
 [
  begin_, {}, [{write, 0}], increment,
