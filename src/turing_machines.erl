@@ -35,6 +35,8 @@ simplified_alternating_example() ->
  "𝔟", 1,  [right, right, {write, 0}], "𝔟"
 ].
 
+
+-spec runs_of_ones() -> turing_machine:rule_list().
 runs_of_ones() ->
 [
  "𝔟", {},  [{write, "ə"}, right, {write, "ə"},
