@@ -15,6 +15,8 @@ eval(TM, Input) when Input=:="p" ->
     print_machine(TM);
 eval(TM, Input) when Input=:="n" ->
     step_machine(TM);
+eval(TM, Input) when Input=:="ns" ->
+    step_machine_till_next_state(TM);
 eval(TM, _) ->
     {ok, "Command not found.", TM}.
 
@@ -26,3 +28,7 @@ print_machine(TM) ->
 step_machine(TM) ->
     TM2 = turing_machine:step(TM),
     {ok, turing_machine:to_string(TM2), TM2}.
+
+
+step_machine_till_next_state(TM) ->
+    TM.
