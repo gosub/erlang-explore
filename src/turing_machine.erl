@@ -2,7 +2,7 @@
 -author("Giampaolo Guiducci <giampaolo.guiducci@gmail.com>").
 -license("GNU GPL v3.0").
 
--export([new/2, new/3, step/1, steps/2, to_string/1]).
+-export([new/2, new/3, step/1, steps/2, to_string/1, state/1]).
 
 -type state() :: string() | atom().
 -type cell_match() :: turing_tape:cell() | any.
@@ -127,3 +127,7 @@ rule_table_from_list([], AccMap) ->
 rule_table_from_list([State, Read, Instructions, NextState| Rest], AccMap) ->
     M2 = maps:put({State, Read}, {Instructions, NextState}, AccMap),
     rule_table_from_list(Rest, M2).
+
+
+state({_, State, _}) ->
+    State.
