@@ -31,4 +31,14 @@ step_machine(TM) ->
 
 
 step_machine_till_next_state(TM) ->
-    TM.
+    step_machine_till_next_state(TM, turing_machine:state(TM)).
+
+step_machine_till_next_state(TM, FirstState) ->
+    CurrentState = turing_machine:state(TM),
+    case CurrentState =:= FirstState of
+	true ->
+	    TM2 = turing_machine:step(TM),
+	    step_machine_till_next_state(TM2, FirstState);
+	false ->
+	    {ok, turing_machine:to_string(TM), TM}
+    end.
