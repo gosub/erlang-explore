@@ -129,6 +129,8 @@ rule_table_from_list([State, Read, Instructions, NextState| Rest], AccMap) ->
     rule_table_from_list(Rest, M2).
 
 
+%% state/1: getter for turing machine internal state
+
 -spec state(turing_machine()) -> state().
 state({_, State, _}) ->
     State.
