@@ -129,5 +129,6 @@ rule_table_from_list([State, Read, Instructions, NextState| Rest], AccMap) ->
     rule_table_from_list(Rest, M2).
 
 
+-spec state(turing_machine()) -> state().
 state({_, State, _}) ->
     State.
