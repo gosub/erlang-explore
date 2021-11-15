@@ -21,13 +21,13 @@ eval(ReplState, _) ->
     {ok, "Command not found.", ReplState}.
 
 
-print_machine(TM) ->
-    {ok, turing_machine:to_string(TM), TM}.
+print_machine(ReplState={TM, _}) ->
+    {ok, turing_machine:to_string(TM), ReplState}.
 
 
-step_machine(TM) ->
+step_machine({TM, Counter}) ->
     TM2 = turing_machine:step(TM),
-    {ok, turing_machine:to_string(TM2), TM2}.
+    {ok, turing_machine:to_string(TM2), {TM2, Counter+1}}.
 
 
 step_machine_till_next_state(TM) ->
