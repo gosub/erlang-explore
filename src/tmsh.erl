@@ -6,7 +6,7 @@
 
 
 run(TM) ->
-    mini_repl:run("tmsh> ", fun eval/2, TM).
+    mini_repl:run("tmsh> ", fun eval/2, {TM, 0}).
 
 
 eval(_, Input) when Input=:="q" orelse Input=:="quit" ->
