@@ -11,14 +11,14 @@ run(TM) ->
 
 eval(_, Input) when Input=:="q" orelse Input=:="quit" ->
     quit;
-eval(TM, Input) when Input=:="p" ->
-    print_machine(TM);
-eval(TM, Input) when Input=:="n" ->
-    step_machine(TM);
-eval(TM, Input) when Input=:="ns" ->
-    step_machine_till_next_state(TM);
-eval(TM, _) ->
-    {ok, "Command not found.", TM}.
+eval(ReplState, Input) when Input=:="p" ->
+    print_machine(ReplState);
+eval(ReplState, Input) when Input=:="n" ->
+    step_machine(ReplState);
+eval(ReplState, Input) when Input=:="ns" ->
+    step_machine_till_next_state(ReplState);
+eval(ReplState, _) ->
+    {ok, "Command not found.", ReplState}.
 
 
 print_machine(TM) ->
