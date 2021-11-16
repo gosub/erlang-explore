@@ -2,7 +2,7 @@
 -author("Giampaolo Guiducci <giampaolo.guiducci@gmail.com>").
 -license("GNU GPL v3.0").
 
--export([run/1]).
+-export([run/1, test/0]).
 
 
 run(TM) ->
@@ -43,3 +43,7 @@ step_machine_till_next_state(ReplState, FirstState) ->
 	false ->
 	    {ok, turing_machine:to_string(TM), ReplState}
     end.
+
+
+test() ->
+    run(turing_machines:make(turing_machines:sqrt_of_two(), begin_)).
