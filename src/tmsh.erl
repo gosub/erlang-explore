@@ -30,8 +30,8 @@ step_machine({TM, Counter}) ->
     {ok, turing_machine:to_string(TM2), {TM2, Counter+1}}.
 
 
-step_machine_till_next_state(TM) ->
-    step_machine_till_next_state(TM, turing_machine:state(TM)).
+step_machine_till_next_state(ReplState={TM, _}) ->
+    step_machine_till_next_state(ReplState, turing_machine:state(TM)).
 
 step_machine_till_next_state(TM, FirstState) ->
     CurrentState = turing_machine:state(TM),
