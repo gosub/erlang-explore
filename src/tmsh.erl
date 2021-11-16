@@ -33,12 +33,13 @@ step_machine({TM, Counter}) ->
 step_machine_till_next_state(ReplState={TM, _}) ->
     step_machine_till_next_state(ReplState, turing_machine:state(TM)).
 
-step_machine_till_next_state(TM, FirstState) ->
+step_machine_till_next_state(ReplState, FirstState) ->
+    {TM, Counter} = ReplState,
     CurrentState = turing_machine:state(TM),
     case CurrentState =:= FirstState of
 	true ->
 	    TM2 = turing_machine:step(TM),
-	    step_machine_till_next_state(TM2, FirstState);
+	    step_machine_till_next_state({TM2, Counter+1}, FirstState);
 	false ->
-	    {ok, turing_machine:to_string(TM), TM}
+	    {ok, turing_machine:to_string(TM), ReplState}
     end.
