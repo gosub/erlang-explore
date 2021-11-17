@@ -31,6 +31,8 @@ run_repl_io(Prompt, EvalStateless) ->
 	    io:format("Error: ~p\n", [Error])
     end.
 
+
+-spec run_repl_io(string(), stateful_eval_fun(), any()) -> none().
 run_repl_io(Prompt, EvalStateful, State) ->
     Line = io:get_line(Prompt),
     case EvalStateful(State, string:chomp(Line)) of
