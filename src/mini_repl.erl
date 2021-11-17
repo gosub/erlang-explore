@@ -18,6 +18,7 @@ run(Prompt, EvalStateful, InitState) ->
     without_echo(fun run_repl_io/3, [Prompt, EvalStateful, InitState]).
 
 
+-spec run_repl_io(string(), stateless_eval_fun()) -> none().
 run_repl_io(Prompt, EvalStateless) ->
     Line = io:get_line(Prompt),
     case EvalStateless(string:chomp(Line)) of
