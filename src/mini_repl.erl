@@ -5,12 +5,15 @@
 -export([run/2, run/3, echo_eval/1, inc_eval/2]).
 
 -type stateless_eval_fun() :: fun((string()) -> {ok, string()} | quit | {error, string()}).
+-type stateful_eval_fun() :: fun((any(), string()) -> {ok, string(), any()} | quit | {error, string()}).
 
 
 -spec run(string(), stateless_eval_fun()) -> none().
 run(Prompt, EvalStateless) ->
     without_echo(fun run_repl_io/2, [Prompt, EvalStateless]).
 
+
+-spec run(string(), stateful_eval_fun(), any()) -> none().
 run(Prompt, EvalStateful, InitState) ->
     without_echo(fun run_repl_io/3, [Prompt, EvalStateful, InitState]).
 
