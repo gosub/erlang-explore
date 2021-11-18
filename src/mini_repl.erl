@@ -46,6 +46,7 @@ run_repl_io(Prompt, EvalStateful, State) ->
     end.
 
 
+-spec without_echo(fun(), [any()]) -> any().
 without_echo(F, Args) ->
     {echo, PreviousState} = lists:keyfind(echo, 1, io:getopts()),
     io:setopts([{echo, false}]),
