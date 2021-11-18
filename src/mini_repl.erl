@@ -55,6 +55,7 @@ without_echo(F, Args) ->
     Result.
 
 
+-spec echo_eval(string()) -> {ok, string()} | quit.
 echo_eval(S) when S=:="q" orelse S=:="quit" ->
     quit;
 echo_eval(Str) ->
