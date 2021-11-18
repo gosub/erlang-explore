@@ -5,6 +5,7 @@
 -export([run/1, test/0]).
 
 
+-spec run(turing_machine:turing_machine()) -> none().
 run(TM) ->
     mini_repl:run("tmsh> ", fun eval/2, {TM, 0}).
 
