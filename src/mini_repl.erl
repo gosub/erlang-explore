@@ -61,6 +61,8 @@ echo_eval(S) when S=:="q" orelse S=:="quit" ->
 echo_eval(Str) ->
     {ok, Str}.
 
+
+-spec inc_eval(integer(), string()) -> quit | {ok, string(), integer()}.
 inc_eval(_, S) when S=:="q" orelse S=:="quit" ->
     quit;
 inc_eval(_, "0") ->
