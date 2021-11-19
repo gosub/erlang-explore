@@ -5,14 +5,14 @@
 -export([run/1, test/0]).
 
 -type repl_state() :: {turing_machine:turing_machine(), integer()}.
-
+-type eval_output() :: {ok, string(), repl_state()} | quit.
 
 -spec run(turing_machine:turing_machine()) -> none().
 run(TM) ->
     mini_repl:run("tmsh> ", fun eval/2, {TM, 0}).
 
 
--spec eval(repl_state(), string()) -> quit | {ok, string(), repl_state()}.
+-spec eval(repl_state(), string()) -> eval_output().
 eval(_, Input) when Input=:="q" orelse Input=:="quit" ->
     quit;
 eval(ReplState, Input) when Input=:="p" ->
