@@ -27,6 +27,7 @@ eval(ReplState, _) ->
     {ok, "Command not found.", ReplState}.
 
 
+-spec print_machine(repl_state()) -> eval_output().
 print_machine(ReplState={TM, _}) ->
     {ok, turing_machine:to_string(TM), ReplState}.
 
