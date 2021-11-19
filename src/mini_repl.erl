@@ -7,6 +7,8 @@
 -type stateless_eval_fun() :: fun((string()) -> {ok, string()} | quit | {error, string()}).
 -type stateful_eval_fun() :: fun((any(), string()) -> {ok, string(), any()} | quit | {error, string()}).
 
+-export_type([stateful_eval_fun/0, stateless_eval_fun/0]).
+
 
 -spec run(string(), stateless_eval_fun()) -> none().
 run(Prompt, EvalStateless) ->
