@@ -38,6 +38,7 @@ step_machine({TM, Counter}) ->
     {ok, turing_machine:to_string(TM2), {TM2, Counter+1}}.
 
 
+-spec step_machine_till_next_state(repl_state()) -> eval_output().
 step_machine_till_next_state(ReplState={TM, _}) ->
     step_machine_till_next_state(ReplState, turing_machine:state(TM)).
 
