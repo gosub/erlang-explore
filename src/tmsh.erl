@@ -42,6 +42,8 @@ step_machine({TM, Counter}) ->
 step_machine_till_next_state(ReplState={TM, _}) ->
     step_machine_till_next_state(ReplState, turing_machine:state(TM)).
 
+
+-spec step_machine_till_next_state(repl_state(), turing_machine:state()) -> eval_output().
 step_machine_till_next_state(ReplState, FirstState) ->
     {TM, Counter} = ReplState,
     CurrentState = turing_machine:state(TM),
