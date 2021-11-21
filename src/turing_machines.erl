@@ -7,6 +7,7 @@
 -export([runs_of_ones/0, positive_integers/0, sqrt_of_two/0]).
 
 
+-spec all() -> #{string() := turing_machine:rule_list()}.
 all() ->
     Machines = [alternating_example, simplified_alternating_example, runs_of_ones,
 		positive_integers, sqrt_of_two],
