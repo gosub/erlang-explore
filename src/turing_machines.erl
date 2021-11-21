@@ -25,6 +25,7 @@ make(Machine, BeginState) ->
     turing_machine:new(Machine, BeginState).
 
 
+-spec get_begin_state(turing_machine:rule_list()) -> turing_machine:state().
 get_begin_state([FirstState | _]) ->
     FirstState.
 
