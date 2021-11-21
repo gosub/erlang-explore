@@ -58,4 +58,4 @@ step_machine_till_next_state(ReplState, FirstState) ->
 
 -spec test() -> none().
 test() ->
-    run(turing_machines:make(turing_machines:sqrt_of_two(), begin_)).
+    run(turing_machines:make(turing_machines:sqrt_of_two())).
