@@ -2,7 +2,7 @@
 -author("Giampaolo Guiducci <giampaolo.guiducci@gmail.com>").
 -license("GNU GPL v3.0").
 
--export([make/1, make/2]).
+-export([all/0, make/1, make/2]).
 -export([alternating_example/0, simplified_alternating_example/0]).
 -export([runs_of_ones/0, positive_integers/0, sqrt_of_two/0]).
 
