@@ -7,6 +7,13 @@
 -export([runs_of_ones/0, positive_integers/0, sqrt_of_two/0]).
 
 
+all() ->
+    Machines = [alternating_example, simplified_alternating_example, runs_of_ones,
+		positive_integers, sqrt_of_two],
+    List = [{atom_to_list(Machine), ?MODULE:Machine()} || Machine <- Machines],
+    maps:from_list(List).
+
+
 -spec make(turing_machine:rule_list()) -> turing_machine:turing_machine().
 make(Machine) ->
     make(Machine, "𝔟").
