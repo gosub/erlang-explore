@@ -25,6 +25,10 @@ make(Machine, BeginState) ->
     turing_machine:new(Machine, BeginState).
 
 
+get_begin_state([FirstState | _]) ->
+    FirstState.
+
+
 -spec alternating_example() -> turing_machine:rule_list().
 alternating_example() ->
 [
