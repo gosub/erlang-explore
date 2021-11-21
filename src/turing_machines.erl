@@ -17,7 +17,7 @@ all() ->
 
 -spec make(turing_machine:rule_list()) -> turing_machine:turing_machine().
 make(MachineRuleList) ->
-    make(MachineRuleList, "𝔟").
+    make(MachineRuleList, get_begin_state(MachineRuleList)).
 
 
 -spec make(turing_machine:rule_list(), turing_machine:state()) -> turing_machine:turing_machine().
