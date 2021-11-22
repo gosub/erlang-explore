@@ -32,7 +32,7 @@ These are the machines implemented until now:
 
 ### mini_repl
 
-A module to create small REPLs.
+A module to create small REPLs. The module takes care of the input/output part, and only needs a pure function.
 
 ## Dev checklist
 
