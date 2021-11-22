@@ -32,7 +32,7 @@ These are the machines implemented until now:
 
 ### mini_repl
 
-A module to create small REPLs. The module takes care of the input/output part, and only needs a pure function.
+A module to create small REPLs. The module takes care of the input/output part, and only needs a pure function. This pure function comes in two flavour: stateless and stateful. Both takes a string in input and outputs a string, the staful one also get a state value and returns an updated state value.
 
 ## Dev checklist
 
