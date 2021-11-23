@@ -17,7 +17,7 @@ eval(_, Input) when Input=:="q" orelse Input=:="quit" ->
     quit;
 eval(ReplState, "p") ->
     print_machine(ReplState);
-eval(ReplState, Input) when Input=:="n" ->
+eval(ReplState, "n") ->
     step_machine(ReplState);
 eval(ReplState, Input) when Input=:="ns" ->
     step_machine_till_next_state(ReplState);
