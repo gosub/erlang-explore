@@ -19,7 +19,7 @@ eval(ReplState, "p") ->
     print_machine(ReplState);
 eval(ReplState, "n") ->
     step_machine(ReplState);
-eval(ReplState, Input) when Input=:="ns" ->
+eval(ReplState, "ns") ->
     step_machine_till_next_state(ReplState);
 eval(ReplState={_, Counter}, Input) when Input=:="c" ->
     {ok, io_lib:format("Step counter: ~p",[Counter]), ReplState};
