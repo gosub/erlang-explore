@@ -15,7 +15,7 @@ run(TM) ->
 -spec eval(repl_state(), string()) -> eval_output().
 eval(_, Input) when Input=:="q" orelse Input=:="quit" ->
     quit;
-eval(ReplState, Input) when Input=:="p" ->
+eval(ReplState, "p") ->
     print_machine(ReplState);
 eval(ReplState, Input) when Input=:="n" ->
     step_machine(ReplState);
