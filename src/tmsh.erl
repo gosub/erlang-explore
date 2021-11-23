@@ -21,7 +21,7 @@ eval(ReplState, "n") ->
     step_machine(ReplState);
 eval(ReplState, "ns") ->
     step_machine_till_next_state(ReplState);
-eval(ReplState={_, Counter}, Input) when Input=:="c" ->
+eval(ReplState={_, Counter}, "c") ->
     {ok, io_lib:format("Step counter: ~p",[Counter]), ReplState};
 eval(ReplState, _) ->
     {ok, "Command not found.", ReplState}.
