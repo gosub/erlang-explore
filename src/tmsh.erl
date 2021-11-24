@@ -18,17 +18,17 @@ eval(ReplState, String) ->
 
 
 
-eval(_, Input) when Input=:="q" orelse Input=:="quit" ->
+eval_tokenized(_, [Input|_]) when Input=:="q" orelse Input=:="quit" ->
     quit;
-eval(ReplState, "p") ->
+eval_tokenized(ReplState, ["p"|_]) ->
     print_machine(ReplState);
-eval(ReplState, "n") ->
+eval_tokenized(ReplState, ["n"|_]) ->
     step_machine(ReplState);
-eval(ReplState, "ns") ->
+eval_tokenized(ReplState, ["ns"|_]) ->
     step_machine_till_next_state(ReplState);
-eval(ReplState={_, Counter}, "c") ->
+eval_tokenized(ReplState={_, Counter}, ["c"|_]) ->
     {ok, io_lib:format("Step counter: ~p",[Counter]), ReplState};
-eval(ReplState, _) ->
+eval_tokenized(ReplState, _) ->
     {ok, "Command not found.", ReplState}.
 
 
