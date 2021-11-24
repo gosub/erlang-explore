@@ -13,6 +13,11 @@ run(TM) ->
 
 
 -spec eval(repl_state(), string()) -> eval_output().
+eval(ReplState, String) ->
+    eval_tokenized(ReplState, string:split(String, " ", all)).
+
+
+
 eval(_, Input) when Input=:="q" orelse Input=:="quit" ->
     quit;
 eval(ReplState, "p") ->
