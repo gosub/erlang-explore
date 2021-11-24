@@ -17,7 +17,7 @@ eval(ReplState, String) ->
     eval_tokenized(ReplState, string:split(String, " ", all)).
 
 
-
+-spec eval_tokenized(repl_state(), [string()]) -> eval_output().
 eval_tokenized(_, [Input|_]) when Input=:="q" orelse Input=:="quit" ->
     quit;
 eval_tokenized(ReplState, ["p"|_]) ->
