@@ -48,6 +48,11 @@ step_machine_till_next_state(ReplState={TM, _}) ->
     step_machine_till_next_state(ReplState, turing_machine:state(TM)).
 
 
+step_machine_n_times({TM, Counter}, N) ->
+    TM2 = turing_machine:steps(TM, N),
+    {ok, turing_machine:to_string(TM2), {TM2, Counter+N}}.
+
+
 -spec step_machine_till_next_state(repl_state(), turing_machine:state()) -> eval_output().
 step_machine_till_next_state(ReplState, FirstState) ->
     {TM, Counter} = ReplState,
