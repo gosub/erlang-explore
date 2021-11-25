@@ -22,8 +22,11 @@ eval_tokenized(_, [Input|_]) when Input=:="q" orelse Input=:="quit" ->
     quit;
 eval_tokenized(ReplState, ["p"|_]) ->
     print_machine(ReplState);
-eval_tokenized(ReplState, ["n"|_]) ->
+eval_tokenized(ReplState, ["n"]) ->
     step_machine(ReplState);
+eval_tokenized(ReplState, ["n", Number|_]) ->
+    N = list_to_integer(Number),
+    step_machine_n_times(ReplState, N);
 eval_tokenized(ReplState, ["ns"|_]) ->
     step_machine_till_next_state(ReplState);
 eval_tokenized(ReplState={_, Counter}, ["c"|_]) ->
