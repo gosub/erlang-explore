@@ -19,6 +19,10 @@ all() ->
     maps:from_list(List).
 
 
+%% make/1 - return a complete turing machine from the rule list
+%%
+%% The machine is initialized with the first state found in the rule list.
+
 -spec make(turing_machine:rule_list()) -> turing_machine:turing_machine().
 make(MachineRuleList) ->
     make(MachineRuleList, get_begin_state(MachineRuleList)).
