@@ -28,6 +28,11 @@ make(MachineRuleList) ->
     make(MachineRuleList, get_begin_state(MachineRuleList)).
 
 
+%% make/2 - return a complete turing machine from the rule list and a state
+%%
+%% The machine is initialized with an empty tape and the state passed as the
+%% second argument.
+
 -spec make(turing_machine:rule_list(), turing_machine:state()) -> turing_machine:turing_machine().
 make(Machine, BeginState) ->
     turing_machine:new(Machine, BeginState).
