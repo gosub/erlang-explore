@@ -7,6 +7,10 @@
 -export([runs_of_ones/0, positive_integers/0, sqrt_of_two/0]).
 
 
+%% all/0 - return all the turing machines defined in the module
+%%
+%% The returned value is map from a string to a tuple.
+
 -spec all() -> #{string() := turing_machine:rule_list()}.
 all() ->
     Machines = [alternating_example, simplified_alternating_example, runs_of_ones,
